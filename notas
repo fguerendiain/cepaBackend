@@ -1,0 +1,151 @@
+*****************
+*   entidades   *
+*****************
+
+session{
+    uuid                string(40)
+    useruuid            string(40)
+    token               string(255)
+    incomingDate        unixTimestamp
+    deleted             boolean
+}
+
+users{
+    uuid                string(40)
+    name                string(30)
+    username            string(30)
+    avatar              string(30)
+    active              boolean
+    deleted             boolean
+}
+
+client{
+    uuid                string(40)
+    name                string(30)
+    businessName        string(30)
+    cuit                number(10)
+    adress              string(30)
+    longitude           number(20)
+    latitude            number(20)
+    incomingDate        unixTimestamp
+    observation         string(200)
+    active              boolean
+    deleted             boolean
+}
+
+product{
+    uuid                string(40)
+    itemuuid            string(40)
+    price               number
+    profit              enum
+    unitsperbox         number
+    active              boolean
+    deleted             boolean
+}
+
+item{
+    uuid                string(40)
+    type                enum
+    subtype             enum
+    name                string(30)
+    brand               string(30)
+    measurement         enum
+    quantity            int
+
+}
+
+sale{
+    uuid                string(40)
+    useruuid            string(40)
+    clientuuid          string(40)
+    billid              string(40)
+    incomingDate        unixTimestamp
+    totalTaxes          number
+    totalprice          number
+    totalprofit         number
+    deleted             boolean
+}
+
+bill{
+    id                  number AI
+    productuuid         string(40)
+    billingType         enum
+    taxes               enum
+    deleted             boolean
+}
+
+
+
+//CARACTERISTICAS MODIFICABLES POR EL USUARIO
+ENUMERADOS{ 
+
+    //TIPO DE IMPUESTO
+    taxes{
+        iva21 = 21,
+        iva105 = 10.5, 
+        iva4 = 4,
+    }
+
+    //CANTIDAD DE PORCENTAJE DE GANANCIA POR PRODUCTO
+    profit{ 
+        max = 3,
+        med = 2,
+        min = 1
+    }
+
+    //TIPO DE COMPROBANTE
+    billingType{   
+        x = 'x',
+        a = 'a',
+        b = 'b',
+        c = 'c',
+        e = 'e',
+        m = 'm'
+    }
+
+    //UNIDADES DE MEDIDA
+    measurement{
+        cubiccentimeters = 'cc',
+        liter = 'lt',
+        mililiter = 'ml',
+        kilogram = 'kg',
+        gram = 'g',
+        package = 'paq',
+        unity = 'uni'
+    }
+
+    //TIPO DE ARTICULO
+    type{
+        bebida con alcohol,
+        bebida sin alcohol,
+        almacen.
+    }
+
+    //SUBTIPO DE ARTICULO
+    subtype{
+        vino blanco
+        vino blanco Chardonay
+        vino blanco Sauvignon blanc
+        vino blanco Chenin blanc
+        vino blanco Sémillon
+        vino blanco Torrontés 
+
+        vino tinto
+        vino tinto Cabernet Sauvignon
+        vino tinto Merlot
+        vino tinto Pinot noir
+        vino tinto Syrah
+        vino tinto Malbec
+
+        licor
+        aperitivo
+        bebida blanca
+        espumante
+        gaseosa
+        agua
+        agua con gas
+        agua saborizada
+        jugo
+
+    }
+}
