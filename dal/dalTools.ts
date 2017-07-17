@@ -1,5 +1,5 @@
-import uuidMod = require('uuid');
-import jwtMod = require('jwt-simple');
+import {uuidMod} from 'uuid';
+import {jwtMod} from 'jwt-simple';
 
 export class DalTools{
 
@@ -7,24 +7,19 @@ export class DalTools{
         return uuidMod();
     }
     
-    public static TokenGenerator(userName:string,incomingDate:number,adminUser:boolean){
-        let header = {
-            "typ":"JWT",
-            "alg":"HS256"
-        }
-        
+    public static TokenGenerator(userName:string,incomingDate:number,adminUser:boolean):string{
+
         let payload = {
             "iss":"cepaSessionLogin",
             "iat": incomingDate,
             "username" : userName,
             "admin" : adminUser
-
-
         }
 
-        let signature = {
+        let secret = "k@d34SDd&-";
 
-        }
+        return jwtMod.encode(payload,secret);
+
 
     }
 }
