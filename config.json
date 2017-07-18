@@ -1,0 +1,15 @@
+{
+    "db":{
+        "host":"",
+        "port":"",
+        "db":"",
+        "user":"",
+        "password":""
+    },
+
+    "JWT":{
+        "passKey":"qwer@013&"
+    },
+
+    "userDefaultAvatar":"../img/defaultavatar.jpg"
+}

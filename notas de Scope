@@ -1,0 +1,25 @@
+index
+    enrutamiento
+    utiliza midelware
+    utiliza resource
+
+midelware
+    capa de validacion para api
+    utiliza dal
+
+resource
+    desencadena los metodos de los objetos para realizar las tareas solicitadas
+    utiliza entities
+
+entities
+    define el comportamiento de cada tipo de entidad
+    utilizan dal
+
+
+dal (DATA ABSTRACT LAYER)
+    dalTolls{
+        metodos de funcionalidad reutilizable
+    }
+    dal*{
+        metodos de funcionalidad reutilizable especificos de cada entitie
+    }
